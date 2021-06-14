@@ -10,7 +10,7 @@ def save_wave_file(filename, data):
     wf.setnchannels(1) 
     wf.setsampwidth(2) 
     wf.setframerate(SAMPLING_RATE) 
-    wf.writeframes(b"".join(data))  #因此，您只需在空字符串中添加一个b前缀即可使其成为字节对象：
+    wf.writeframes(b"".join(data))  #只需在空字符串中添加一个b前缀即可使其成为字节对象,对字节进行串联，对字符串就是默认不用b就行
     wf.close() 
 
 NUM_SAMPLES = 2000      # pyAudio内部缓存的块的大小
@@ -46,7 +46,7 @@ while True:
 
     if save_count > 0: 
         # 将要保存的数据存放到save_buffer中
-        save_buffer.append( string_audio_data ) 
+        save_buffer.append(string_audio_data) 
     else: 
         # 将save_buffer中的数据写入WAV文件，WAV文件的文件名是保存的时刻
         if len(save_buffer) > 0: 
@@ -54,3 +54,4 @@ while True:
             save_wave_file(filename, save_buffer) 
             save_buffer = [] 
             print(filename, "saved")
+            break   #这是我自己添加的，不然原程序会一直循环
