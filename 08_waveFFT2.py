@@ -18,7 +18,7 @@ x, y = generate_sine_wave(2, SAMPLE_RATE, DURATION)
 plt.plot(x, y)
 plt.show()
 
-_, nice_tone = generate_sine_wave(400, SAMPLE_RATE, DURATION)
+_, nice_tone = generate_sine_wave(400, SAMPLE_RATE, DURATION)    #_代表上一个指令执行的结果，也就是 x 所表示的 array
 _, noise_tone = generate_sine_wave(4000, SAMPLE_RATE, DURATION)
 noise_tone = noise_tone * 0.3
 
